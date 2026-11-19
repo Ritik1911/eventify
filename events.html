@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Events | Eventify</title>
+
+    <meta name="description" content="Eventify: discover and book college workshops, seminars, hackathons and competitions.">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%238b5cf6'/%3E%3Ctext x='50' y='68' font-size='56' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
+
+    <!-- Flask CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body data-static>
+
+<div id="site-header"></div>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div id="toasts" aria-live="polite">
+    {% for category, message in messages %}
+    <div class="toast {{ category }}">{{ message }}</div>
+    {% endfor %}
+</div>
+<script>setTimeout(function(){document.querySelectorAll("#toasts .toast").forEach(function(t){t.remove()})},7000);</script>
+{% endif %}
+{% endwith %}
+
+<main>
+
+    <!-- EVENTS PAGE HEADER -->
+    <section class="page-head">
+
+        <div class="container">
+
+            <h1>Find your next event</h1>
+
+            <p>
+                Search by name, venue or topic, or filter by category.
+            </p>
+
+            <!-- SEARCH AND FILTER -->
+            <div class="toolbar">
+
+                <input
+                    class="search"
+                    id="search"
+                    type="search"
+                    placeholder="Search events"
+                    aria-label="Search events"
+                >
+
+                <div class="chips" id="chips"></div>
+
+            </div>
+
+            <!-- EVENT RESULT COUNT -->
+            <p
+                class="note"
+                id="result-count"
+                aria-live="polite"
+            ></p>
+
+        </div>
+
+    </section>
+
+    <!-- EVENTS LIST -->
+    <section style="padding-top:20px">
+
+        <div class="container">
+
+            <div class="grid g3" id="events-list"></div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<!-- Flask JavaScript -->
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

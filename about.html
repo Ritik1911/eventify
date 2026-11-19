@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>About | Eventify</title>
+
+    <meta name="description" content="Eventify: discover and book college workshops, seminars, hackathons and competitions.">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%238b5cf6'/%3E%3Ctext x='50' y='68' font-size='56' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
+
+    <!-- Flask CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body data-static>
+
+<div id="site-header"></div>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div id="toasts" aria-live="polite">
+    {% for category, message in messages %}
+    <div class="toast {{ category }}">{{ message }}</div>
+    {% endfor %}
+</div>
+<script>setTimeout(function(){document.querySelectorAll("#toasts .toast").forEach(function(t){t.remove()})},7000);</script>
+{% endif %}
+{% endwith %}
+
+<main>
+
+    <!-- PAGE HEADER -->
+    <section class="page-head">
+        <div class="container">
+            <h1>About Eventify</h1>
+            <p>
+                Eventify is a student-built platform that helps colleges
+                publish events and helps students find and book them.
+            </p>
+        </div>
+    </section>
+
+    <!-- MISSION AND VISION -->
+    <section>
+        <div class="container">
+
+            <div class="grid g2">
+
+                <div class="glass panel">
+                    <h2>Our mission</h2>
+                    <p class="note" style="font-size:1rem">
+                        Make every learning opportunity on campus easy to find and easy to join.
+                    </p>
+                </div>
+
+                <div class="glass panel">
+                    <h2>Our vision</h2>
+                    <p class="note" style="font-size:1rem">
+                        A connected campus where no student misses an event because they did not hear about it.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section>
+        <div class="container">
+
+            <div class="section-head">
+                <h2>Why choose us</h2>
+            </div>
+
+            <div class="grid g4">
+
+                <div class="glass feature">
+                    <h3>Discover in one place</h3>
+                    <p>Every workshop, seminar and competition on a single calendar.</p>
+                </div>
+
+                <div class="glass feature">
+                    <h3>Book in seconds</h3>
+                    <p>Reserve seats and pay through a simple checkout.</p>
+                </div>
+
+                <div class="glass feature">
+                    <h3>Built for colleges</h3>
+                    <p>Designed around student and faculty workflows.</p>
+                </div>
+
+                <div class="glass feature">
+                    <h3>Clear seat counts</h3>
+                    <p>See how many seats are left before you commit.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- STATISTICS -->
+    <section class="stats">
+        <div class="container">
+
+            <div class="glass grid g4">
+
+                <div class="stat">
+                    <b>120+</b>
+                    <span>Events hosted</span>
+                </div>
+
+                <div class="stat">
+                    <b>3,500+</b>
+                    <span>Students</span>
+                </div>
+
+                <div class="stat">
+                    <b>25+</b>
+                    <span>Colleges</span>
+                </div>
+
+                <div class="stat">
+                    <b>4.8/5</b>
+                    <span>Average rating</span>
+                </div>
+
+            </div>
+
+            <p class="note">Sample figures for the static template.</p>
+
+        </div>
+    </section>
+
+    <!-- TEAM SECTION -->
+    <section>
+        <div class="container">
+
+            <div class="section-head">
+                <h2>Meet the team</h2>
+            </div>
+
+            <div class="grid g4">
+
+                <div class="glass team">
+                    <div class="avatar">AP</div>
+                    <h3>Aarav Patel</h3>
+                    <p>Frontend Developer</p>
+                </div>
+
+                <div class="glass team">
+                    <div class="avatar">DS</div>
+                    <h3>Diya Shah</h3>
+                    <p>Backend (Flask)</p>
+                </div>
+
+                <div class="glass team">
+                    <div class="avatar">RM</div>
+                    <h3>Rohan Mehta</h3>
+                    <p>UI/UX Designer</p>
+                </div>
+
+                <div class="glass team">
+                    <div class="avatar">II</div>
+                    <h3>Ishita Desai</h3>
+                    <p>Database & Testing</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<!-- Flask JavaScript -->
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

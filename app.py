@@ -152,6 +152,7 @@ def register():
             return redirect(url_for("home"))
 
         except Exception:
+            app.logger.exception("Registration failed")
             db.session.rollback()
             flash("Something went wrong. Please try again.", "error")
             return redirect(url_for("register"))
