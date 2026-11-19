@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Payment | Eventify</title>
+
+    <meta name="description" content="Eventify: discover and book college workshops, seminars, hackathons and competitions.">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%238b5cf6'/%3E%3Ctext x='50' y='68' font-size='56' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
+
+    <!-- Flask CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body data-static>
+
+<div id="site-header"></div>
+
+<main>
+
+    <!-- PAGE HEADER -->
+    <section class="page-head">
+
+        <div class="container">
+
+            <h1>Complete your booking</h1>
+
+            <p>
+                Review your event and pay securely.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- PAYMENT SECTION -->
+    <div class="container pay">
+
+        <!-- SELECTED EVENT -->
+        <div class="glass pay-event" id="pay-event"></div>
+
+        <!-- BOOKING SUMMARY -->
+        <div class="glass panel">
+
+            <h2 style="margin-bottom:18px">
+                Booking summary
+            </h2>
+
+            <!-- CHECKOUT STATE -->
+            <div class="state" data-state="checkout">
+
+                <div class="rows" id="rows"></div>
+
+                <button
+                    class="btn btn-primary btn-block"
+                    id="pay-now"
+                    style="margin-top:22px"
+                >
+                    Pay now
+                </button>
+
+                <p class="note">
+                    Payments will run through Razorpay Test Mode
+                    once the Flask backend is connected.
+                </p>
+
+            </div>
+
+            <!-- PROCESSING STATE -->
+            <div class="state" data-state="processing">
+
+                <div class="spinner"></div>
+
+                <h3>Processing payment</h3>
+
+                <p>
+                    Please do not close or refresh this page.
+                </p>
+
+            </div>
+
+            <!-- SUCCESS STATE -->
+            <div class="state ok" data-state="success">
+
+                <div class="icon">✓</div>
+
+                <h3>Payment successful</h3>
+
+                <p>
+                    Your seat is booked. A confirmation
+                    will be sent to your email.
+                </p>
+
+                <div class="actions">
+
+                    <a
+                        class="btn btn-primary"
+                        href="{{ url_for('events') }}"
+                    >
+                        Browse more events
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- FAILURE STATE -->
+            <div class="state bad" data-state="failure">
+
+                <div class="icon">✕</div>
+
+                <h3>Payment failed</h3>
+
+                <p>
+                    No money was taken. Check your payment
+                    details and try again.
+                </p>
+
+                <div class="actions">
+
+                    <button
+                        class="btn btn-primary"
+                        data-preview="checkout"
+                    >
+                        Try again
+                    </button>
+
+                    <a
+                        class="btn btn-ghost"
+                        href="{{ url_for('contact') }}"
+                    >
+                        Get help
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- PAYMENT UI PREVIEW -->
+            <div class="preview">
+
+                UI preview only:
+
+                <button class="chip" data-preview="checkout">
+                    Checkout
+                </button>
+
+                <button class="chip" data-preview="processing">
+                    Processing
+                </button>
+
+                <button class="chip" data-preview="success">
+                    Success
+                </button>
+
+                <button class="chip" data-preview="failure">
+                    Failure
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+<div id="site-footer"></div>
+
+<!-- Flask JavaScript -->
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,316 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Discover. Connect. Experience. | Eventify</title>
+
+    <meta name="description" content="Eventify: discover and book college workshops, seminars, hackathons and competitions.">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%238b5cf6'/%3E%3Ctext x='50' y='68' font-size='56' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
+
+    <!-- Flask CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body data-static>
+
+<div id="site-header"></div>
+
+<main>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+
+            <div>
+                <h1>
+                    Discover. Connect.
+                    <span class="grad-text">Experience.</span>
+                </h1>
+
+                <p>
+                    Find workshops, seminars, hackathons and competitions
+                    at your college, then book your seat in a few clicks.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="{{ url_for('events') }}">
+                        Explore Events
+                    </a>
+
+                    <a class="btn btn-ghost" href="{{ url_for('register') }}">
+                        Create Account
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+
+                <!-- Flask Image Path -->
+                <img
+                    src="{{ url_for('static', filename='images/hero.svg') }}"
+                    alt="Eventify event illustration"
+                    width="800"
+                    height="500"
+                >
+
+                <div class="glass float-card">
+                    <small>Next up</small><br>
+                    <b>CodeStorm 24-Hour Hackathon</b><br>
+                    <small>12 Dec · Innovation Lab</small>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED EVENTS -->
+    <section id="featured">
+        <div class="container">
+
+            <div class="section-head row">
+                <div>
+                    <h2>Featured events</h2>
+                    <p>Hand-picked sessions our students are signing up for.</p>
+                </div>
+
+                <a class="btn btn-ghost btn-sm" href="{{ url_for('events') }}">
+                    View all events
+                </a>
+            </div>
+
+            <div class="grid g3" id="featured-events"></div>
+
+        </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section>
+        <div class="container">
+
+            <div class="section-head">
+                <h2>Browse by category</h2>
+            </div>
+
+            <div class="grid g4" id="category-tiles"></div>
+
+        </div>
+    </section>
+
+    <!-- UPCOMING EVENTS -->
+    <section>
+        <div class="container">
+
+            <div class="section-head">
+                <h2>Upcoming events</h2>
+                <p>The next four on the calendar.</p>
+            </div>
+
+            <div class="grid g4" id="upcoming-events"></div>
+
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section>
+        <div class="container">
+
+            <div class="section-head">
+                <h2>How it works</h2>
+            </div>
+
+            <div class="grid g3">
+
+                <div class="glass step">
+                    <div class="n">1</div>
+                    <h3>Create your account</h3>
+                    <p>Register with your college details.</p>
+                </div>
+
+                <div class="glass step">
+                    <div class="n">2</div>
+                    <h3>Pick an event</h3>
+                    <p>Search by keyword or filter by category.</p>
+                </div>
+
+                <div class="glass step">
+                    <div class="n">3</div>
+                    <h3>Book and pay</h3>
+                    <p>Reserve your seat through a secure checkout.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- STATISTICS -->
+    <section class="stats">
+        <div class="container">
+
+            <div class="glass grid g4">
+
+                <div class="stat">
+                    <b data-count="120" data-suffix="+">120+</b>
+                    <span>Events hosted</span>
+                </div>
+
+                <div class="stat">
+                    <b data-count="3500" data-suffix="+">3,500+</b>
+                    <span>Students registered</span>
+                </div>
+
+                <div class="stat">
+                    <b data-count="25" data-suffix="+">25+</b>
+                    <span>Partner colleges</span>
+                </div>
+
+                <div class="stat">
+                    <b data-count="40" data-suffix="+">40+</b>
+                    <span>Industry speakers</span>
+                </div>
+
+            </div>
+
+            <p class="note">Sample figures for the static template.</p>
+
+        </div>
+    </section>
+
+    <!-- REGISTERED STUDENTS -->
+    <section id="students">
+        <div class="container">
+
+            <div class="section-head">
+                <h2>Recently registered students</h2>
+                <p>The latest students to join Eventify.</p>
+            </div>
+
+            <div class="glass table-wrap">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Student Name</th>
+                            <th>Email</th>
+                            <th>Mobile Number</th>
+                            <th>College Name</th>
+                            <th>Department</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <!-- Flask database integration will be added later -->
+
+                        <tr>
+                            <td>Aarav Patel</td>
+                            <td>aarav.patel@example.com</td>
+                            <td>98250 11122</td>
+                            <td>MS University of Baroda</td>
+                            <td>Computer Engineering</td>
+                        </tr>
+
+                        <tr>
+                            <td>Diya Shah</td>
+                            <td>diya.shah@example.com</td>
+                            <td>98791 22334</td>
+                            <td>Parul University</td>
+                            <td>Information Technology</td>
+                        </tr>
+
+                        <tr>
+                            <td>Rohan Mehta</td>
+                            <td>rohan.mehta@example.com</td>
+                            <td>90990 33445</td>
+                            <td>GEC Vadodara</td>
+                            <td>Electronics & Comm.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Ishita Desai</td>
+                            <td>ishita.desai@example.com</td>
+                            <td>97270 44556</td>
+                            <td>Nirma University</td>
+                            <td>Computer Science</td>
+                        </tr>
+
+                        <tr>
+                            <td>Kabir Joshi</td>
+                            <td>kabir.joshi@example.com</td>
+                            <td>99040 55667</td>
+                            <td>Charusat University</td>
+                            <td>Mechanical Engineering</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <p class="note">
+                Sample data only. This table will be connected to the Flask database.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section>
+        <div class="container">
+
+            <div class="section-head">
+                <h2>What students say</h2>
+            </div>
+
+            <div class="grid g3">
+
+                <blockquote class="glass quote">
+                    <p>
+                        "The Flask workshop was the first time web development
+                        really clicked for me."
+                    </p>
+                    <footer>
+                        <b>Neha Kulkarni</b>
+                        B.Tech CE, Sem 5
+                    </footer>
+                </blockquote>
+
+                <blockquote class="glass quote">
+                    <p>
+                        "I found and registered for a hackathon in under two minutes."
+                    </p>
+                    <footer>
+                        <b>Yash Trivedi</b>
+                        B.Tech IT, Sem 3
+                    </footer>
+                </blockquote>
+
+                <blockquote class="glass quote">
+                    <p>
+                        "As an organiser, a single page for seats and registrations saves hours."
+                    </p>
+                    <footer>
+                        <b>Prof. R. Nair</b>
+                        Faculty coordinator
+                    </footer>
+                </blockquote>
+
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<!-- Flask JavaScript -->
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
